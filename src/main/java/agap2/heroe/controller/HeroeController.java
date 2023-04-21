@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import agap2.heroe.model.CustomException;
 import agap2.heroe.model.Heroe;
 import agap2.heroe.service.HeroeService;
 
@@ -25,7 +26,7 @@ public class HeroeController {
 	}
 
 	@GetMapping("/heroe/{id}")
-	private Heroe getHeroe(@PathVariable("id") int id) {
+	private Heroe getHeroe(@PathVariable("id") int id) throws CustomException {
 		return heroeService.getHeroeById(id);
 	}
 	
@@ -35,12 +36,12 @@ public class HeroeController {
 	}
 
 	@DeleteMapping("/heroe/{id}")
-	private void deleteHeroe(@PathVariable("id") int id) {
+	private void deleteHeroe(@PathVariable("id") int id) throws CustomException {
 		heroeService.delete(id);
 	}
 
 	@PostMapping("heroe/create")
-	private int saveStudent(@RequestBody Heroe heroe) {
+	private int saveHeroe(@RequestBody Heroe heroe) throws CustomException {
 		heroeService.saveOrUpdate(heroe);
 		return heroe.getId();
 	}
