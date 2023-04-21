@@ -18,9 +18,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 
-import agap2.heroe.model.CustomException;
 import agap2.heroe.model.Heroe;
 import agap2.heroe.service.HeroeService;
+import agap2.heroe.util.CustomException;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 

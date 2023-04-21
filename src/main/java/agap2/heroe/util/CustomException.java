@@ -1,4 +1,4 @@
-package agap2.heroe.model;
+package agap2.heroe.util;
 
 public class CustomException extends Exception {
 
