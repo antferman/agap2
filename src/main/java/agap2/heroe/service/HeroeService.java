@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
-import agap2.heroe.model.CustomException;
 import agap2.heroe.model.Heroe;
 import agap2.heroe.repository.HeroeRepository;
+import agap2.heroe.util.CustomException;
 
 @Service
 public class HeroeService {

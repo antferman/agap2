@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import agap2.heroe.model.CustomException;
 import agap2.heroe.model.Heroe;
 import agap2.heroe.service.HeroeService;
+import agap2.heroe.util.CustomException;
+import agap2.heroe.util.TrackExecutionTime;
 
 @RestController
 public class HeroeController {
@@ -20,28 +21,33 @@ public class HeroeController {
 	@Autowired
 	HeroeService heroeService;
 
+	@TrackExecutionTime
 	@GetMapping("/heroe/getAll")
-	private List<Heroe> getAllHeroes() {
+	public List<Heroe> getAllHeroes() {
 		return heroeService.getAllHeroes();
 	}
 
+	@TrackExecutionTime
 	@GetMapping("/heroe/{id}")
-	private Heroe getHeroe(@PathVariable("id") int id) throws CustomException {
+	public Heroe getHeroe(@PathVariable("id") int id) throws CustomException {
 		return heroeService.getHeroeById(id);
 	}
 	
+	@TrackExecutionTime
 	@GetMapping("/heroe/getWithFilter/{filter}")
-	private List<Heroe> getHeroes(@PathVariable("filter") String filter) {
+	public List<Heroe> getHeroes(@PathVariable("filter") String filter) {
 		return heroeService.getHeroesWithFilter(filter);
 	}
 
+	@TrackExecutionTime
 	@DeleteMapping("/heroe/{id}")
-	private void deleteHeroe(@PathVariable("id") int id) throws CustomException {
+	public void deleteHeroe(@PathVariable("id") int id) throws CustomException {
 		heroeService.delete(id);
 	}
 
+	@TrackExecutionTime
 	@PostMapping("heroe/create")
-	private int saveHeroe(@RequestBody Heroe heroe) throws CustomException {
+	public int saveHeroe(@RequestBody Heroe heroe) throws CustomException {
 		heroeService.saveOrUpdate(heroe);
 		return heroe.getId();
 	}

@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import agap2.heroe.model.CustomException;
 import agap2.heroe.model.Heroe;
+import agap2.heroe.util.CustomException;
 
 public interface HeroeRepository extends CrudRepository<Heroe,Integer>{
 
