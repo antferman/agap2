@@ -17,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.ActiveProfiles;
 
 import agap2.heroe.model.Heroe;
 import agap2.heroe.service.HeroeService;
@@ -29,6 +30,7 @@ import static org.hamcrest.Matchers.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @TestMethodOrder(OrderAnnotation.class)
+@ActiveProfiles(profiles = "test")
 class Agap2HeroeApplicationTests {
 
 	@LocalServerPort
